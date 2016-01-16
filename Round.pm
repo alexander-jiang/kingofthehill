@@ -45,7 +45,7 @@ sub startRound {
     
     # deal cards to players
     print "done shuffling! now dealing...\n";
-    my @dealOrder = $self->{_deal_order};
+    my @dealOrder = @{$self->{_deal_order}};
     my $numPlayers = @dealOrder;
     for (my $numCards = 1; $numCards <= 20; $numCards++) {
         for (my $i = 0; $i < $numPlayers; $i++) {
@@ -56,8 +56,8 @@ sub startRound {
     }
     
     foreach my $player (@dealOrder) {
-        print "name: " . $player->{_name} . "\n";
-        print "hand: " . $player->{_hand}->printCards() . "\n";
+        print "name: " . $player->{_name} . "\ncards: ";
+        print $player->{_hand}->printCards() . "\n";
     }
 }
 
@@ -70,7 +70,7 @@ my @dealOrder = (
     new KOTH::Player("Earl", new KOTH::Hand())
 );
 
-my $round = new KOTH::Round(@dealOrder, 1, "2");
+my $round = new KOTH::Round(\@dealOrder, 1, "2");
 $round->startRound();
 
 

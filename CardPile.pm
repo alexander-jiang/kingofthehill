@@ -73,7 +73,7 @@ sub shuffleDeck{ #don't shuffle an empty cardpile or cardstack
 sub printCards {
     my ($self) = @_;
     foreach my $card (@{$self->{_cardseq}}) {
-        print $card->getRank() . " of " . $card->getSuit() . " ";
+        print $card->getRank() . $card->getSuit() . ", ";
     }
 }
 
