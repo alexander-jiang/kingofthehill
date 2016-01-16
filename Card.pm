@@ -1,6 +1,6 @@
 use strict;
 
-package Card;
+package KOTH::Card;
 use Scalar::Util 'blessed';
 
 # creates a new card
@@ -11,7 +11,7 @@ sub new
         _rank => shift,
         _suit => shift,
     };
-    print $class."\n";
+    #print $class."\n";
     bless $self, $class;
     return $self;
 }
