@@ -55,18 +55,18 @@ King of the Hill is a 5-player variant of the point-based, trick-taking card gam
 - **Round**:
     - Responsible for setting up before each round (e.g. shuffling cards) and transitioning from drawing phase to playing phase
     - Properties:
-        - *startingPlayer*, the starting player of the round that the first card is dealt to
+        - *dealOrder*, ordered sequence of players that are dealt cards
+        - *isFirstRound*, whether this round is the first round of the game
         - *trumpRank*, the trump rank of this round (determined from starting player's rank)
         - *trumpSuit*, the trump suit of this round (determined after drawing phase)
-        - *koth*, the "king of the hill" for this round
-        - *dealRate*, rate at which cards are dealt in the drawing phase (about one card every 2 seconds) [unnecessary?]
+        - *koth*, the "king of the hill" for this round (the first player of *dealOrder* if *isFirstRound* is 0, otherwise the player who declared the *trumpSuit*)
         - *deadHand*, the hand of eight cards that the KotH keeps face-down until the end of the round
         - *calledCard*, the card that the KotH of the round calls. when this card is played, the player who played it becomes the KotH's teammate
         - *defenders*, a list of players on the defending team (initially only has the KotH, but updated to include the KotH's teammate, if applicable)
         - *playerPoints*, a mapping of the players to their points earned in this round
     - Subroutines:
         - *new*, starts a new round with a given starting player and a flag marking if it's the first round (if it is the first round, then the KotH is the player who declares the trump suit).
-        - *startRound*, shuffles the draw CardStack containing two 54-card decks and deals one card to each player counter-clockwise at the rate specified by *dealRate*
+        - *startRound*, shuffles the draw CardStack containing two 54-card decks and deals one card to each player in the order specified by *dealOrder*
         - [how to let the player declare trump suit???]
 - **Game**:
     - Responsible for tracking player positions relative to each other, and tracking the ranks of players across rounds

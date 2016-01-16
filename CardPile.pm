@@ -1,4 +1,5 @@
 use strict;
+
 use KOTH::Card;
 use Scalar::Util 'blessed';
 package KOTH::CardPile;
@@ -88,6 +89,3 @@ sub shuffleDeck{ #don't shuffle an empty cardpile or cardstack
 #    }
 #}
 #$cardpil->shuffleDeck();
-
-
-
