@@ -17,9 +17,9 @@ King of the Hill is a 5-player variant of the point-based, trick-taking card gam
     - Represents an ordered sequence of cards
     - Subroutines:
         - *new*, creates an empty sequence of cards
-        - *card_exists*, returns 1 if the specified card is in the CardPile and 0 otherwise
-        - *remove_card*, removes a specified card from the CardPile and returns a reference to a new Card (if the card is in the CardPile)
-        - *add_card*, adds a specified card to the CardPile
+        - *cardExists*, returns 1 if the specified card is in the CardPile and 0 otherwise
+        - *removeCard*, removes a specified card from the CardPile and returns the removed Card object (if the card is in the CardPile)
+        - *addCard*, adds a specified card to the CardPile
         - *shuffle*, randomly shuffles the cards in the CardPile
 - **Hand** (inherits from **CardPile**):
     - Represents a CardPile that maintains a "sorted" order for cards by adding new cards in the correct location
