@@ -28,13 +28,6 @@ sub addCard{
     my $self = $_[0];
     my $icard = $_[1];
     push @{$self->{_cardseq}}, $icard;
-    #my @newcardseq = @{$self->{_cardseq}};
-    #push @newcardseq, $icard;
-    #shift @newcardseq; #exists to delete the infinitely nested array that somehow arrived at index 0
-    ##my $hopefullycard = $newcardseq[0];
-    #$self->{_cardseq} = @newcardseq;
-    #print $hopefullycard->getRank();
-    #print @{$self->{_cardseq}}[-1]->getRank();
     return $self;
 }
 sub removeCard{
@@ -45,38 +38,56 @@ sub removeCard{
     #print Scalar::Util::blessed($idxcard);
     until($idxcard->identical($icard)){
         $index++;
+        $idxcard = @{$self->{_cardseq}}[$index];
         if($index >= scalar(@{$self->{_cardseq}})) {
+            print "failed\n";
             return undef;
         }
     }
     splice(@{$self->{_cardseq}}, $index, 1);
     return $icard; 
 }
-sub shuffleDeck{
+sub shuffleDeck{ #don't shuffle an empty cardpile or cardstack
     my($self) = @_;
-    my @newcardseq = $self->{_cardseq};
-    my $idx = $self->{_cardseq};
+    #my @newcardseq = $self->{_cardseq};
+    my $idx = scalar(@{$self->{_cardseq}});
+    #print $idx;
     while ( --$idx )
     {
         my $jdx = int rand( $idx+1 );
-        @newcardseq[$idx,$jdx] = @newcardseq[$jdx,$idx];
+        foreach my $caird (@{$self->{_cardseq}}){
+            print $caird->getRank . $caird->getSuit . " "; 
+        }
+        my $idxcard = @{$self->{_cardseq}}[$idx];
+        my $jdxcard = @{$self->{_cardseq}}[$jdx];
+        @{$self->{_cardseq}}[$idx] = $jdxcard;
+        @{$self->{_cardseq}}[$jdx] = $idxcard;
+        print "\n"
     }
-    $self->{_cardseq} = @newcardseq;
+    #$self->{_cardseq} = @newcardseq;
+    print "end shuffle\n";
     return $self;
 }
 1;
-package Derp;
-my $card1 = new KOTH::Card('1', 'H');
-my $card2 = new KOTH::Card('2', 'H');
-my $card3 = new KOTH::Card('3', 'H');
-my $card4 = new KOTH::Card('4', 'H');
-my $cardpil = new KOTH::CardPile();
-$cardpil->addCard($card1);
-$cardpil->addCard($card2);
-$cardpil->addCard($card3);
-$cardpil->addCard($card4);
-my $card5 = $cardpil->removeCard($card1);
-print $card5->getRank();
+#package Derp;
+##my $card1 = new KOTH::Card('1', 'H');
+##my $card2 = new KOTH::Card('2', 'H');
+##my $card3 = new KOTH::Card('3', 'H');
+##my $card4 = new KOTH::Card('4', 'H');
+#my $cardpil = new KOTH::CardPile();
+##$cardpil->addCard($card1);
+##$cardpil->addCard($card2);
+##$cardpil->addCard($card3);
+##$cardpil->addCard($card4);
+#my @suits = ('H', 'D', 'C', 'S');
+#my @ranks = (1...10, 'J', 'K', 'Q');
+#foreach my $csuit (@suits){
+#    foreach my $crank (@ranks){
+#        my $ncard = new KOTH::Card($crank, $csuit);
+#        $cardpil->addCard($ncard);
+#    }
+#}
+#$cardpil->shuffleDeck();
 
 
 
