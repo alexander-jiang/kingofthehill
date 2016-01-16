@@ -1,6 +1,5 @@
 use strict;
 use KOTH::Card;
-use List::Util;
 package KOTH::CardPile;
 
 sub new
