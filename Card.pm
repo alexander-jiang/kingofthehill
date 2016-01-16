@@ -11,7 +11,6 @@ sub new
         _rank => shift,
         _suit => shift,
     };
-    print $class."\n";
     bless $self, $class;
     return $self;
 }
