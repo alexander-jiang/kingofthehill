@@ -31,7 +31,8 @@ sub getSuit {
 sub identical {
     my $self = $_[0];
     my $other = $_[1];
-    if (blessed($other) eq "Card" and
+    #print blessed($other);
+    if (blessed($other) eq "KOTH::Card" and
         $self->{_rank} eq $other->{_rank} and
         $self->{_suit} eq $other->{_suit}) {
         return 1;
@@ -45,7 +46,7 @@ sub identical {
 sub sameSuit {
     my $self = $_[0];
     my $other = $_[1];
-    if (blessed($other) eq "Card" and
+    if (blessed($other) eq "KOTH::Card" and
         $self->{_suit} eq $other->{_suit}) {
         return 1;
     }
@@ -58,7 +59,7 @@ sub sameSuit {
 sub sameRank {
     my $self = $_[0];
     my $other = $_[1];
-    if (blessed($other) eq "Card" and
+    if (blessed($other) eq "KOTH::Card" and
         $self->{_rank} eq $other->{_rank}) {
         return 1;
     }
