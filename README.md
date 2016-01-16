@@ -12,6 +12,7 @@ King of the Hill is a 5-player variant of the point-based, trick-taking card gam
         - *sameRank*, returns 1 if the given card and this card have the same rank and 0 otherwise
         - *sameSuit*, returns 1 if the given card and this card have the same suit and 0 otherwise
     - Note: The black joker and red joker have rank and suit "~" and "B" and "~" and "R" respectively
+    - [do we need something to validate card suit and rank? do we need it in Card.pm?]
 - **CardPile**:
     - Represents an ordered sequence of cards
     - Subroutines:
