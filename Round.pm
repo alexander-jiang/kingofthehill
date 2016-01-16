@@ -57,7 +57,7 @@ sub startRound {
     
     foreach my $player (@dealOrder) {
         print "name: " . $player->{_name} . "\n";
-        print "hand: " . $player->{_hand}->printHand() . "\n";
+        print "hand: " . $player->{_hand}->printCards() . "\n";
     }
 }
 

@@ -20,11 +20,4 @@ sub numCards {
 
 }
 
-sub printHand {
-    my $self = $_[0];
-    foreach my $card ($self->{_cardseq}) {
-        print $card->getRank() . " of " . $card->getSuit() . " ";
-    }
-}
-
 1;

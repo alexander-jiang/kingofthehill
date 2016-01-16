@@ -65,16 +65,26 @@ sub shuffleDeck{
     $self->{_cardseq} = @newcardseq;
     return $self;
 }
-1;
+
+sub printCards {
+    my ($self) = @_;
+    foreach my $card (@{$self->{_cardseq}}) {
+        print $card->getRank() . " of " . $card->getSuit() . " ";
+    }
+}
+
 package Derp;
-my $card1 = new KOTH::Card('1', 'H');
-my $card2 = new KOTH::Card('2', 'H');
-my $card3 = new KOTH::Card('3', 'H');
-my $card4 = new KOTH::Card('4', 'H');
-my $cardpil = new KOTH::CardPile();
-$cardpil->addCard($card1);
-$cardpil->addCard($card2);
-$cardpil->addCard($card3);
-$cardpil->addCard($card4);
-my $card5 = $cardpil->removeCard($card1);
-print $card5->getRank();
+#my $card1 = new KOTH::Card('1', 'H');
+#my $card2 = new KOTH::Card('2', 'H');
+#my $card3 = new KOTH::Card('3', 'H');
+#my $card4 = new KOTH::Card('4', 'H');
+#my $cardpil = new KOTH::CardPile();
+#$cardpil->addCard($card1);
+#$cardpil->addCard($card2);
+#$cardpil->addCard($card3);
+#$cardpil->addCard($card4);
+#my $card5 = $cardpil->removeCard($card1);
+#print $card5->getRank() . "\n";
+#$cardpil->printCards();
+
+1;
