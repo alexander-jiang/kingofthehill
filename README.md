@@ -1,5 +1,6 @@
 # King of the Hill
-A 5-player trick-taking card game.
+King of the Hill is a 5-player variant of the point-based, trick-taking card game, ["Eighty Points"](https://en.wikipedia.org/wiki/Sheng_Ji) that pits the "king of the hill" (KotH) and his/her teammate (the defenders) against the other 3 players (the challengers). However, the challenging and defending teams often change from round to round, and each player is trying to increase his or her individual score, regardless of which team they're on. The game's fluid partnerships combine bluffing and reading hand strength from poker with trick-taking strategy.
+
 
 ## Classes:
 - **Card**:
