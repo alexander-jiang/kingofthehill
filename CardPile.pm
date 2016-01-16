@@ -55,17 +55,17 @@ sub shuffleDeck{ #don't shuffle an empty cardpile or cardstack
     while ( --$idx )
     {
         my $jdx = int rand( $idx+1 );
-        foreach my $caird (@{$self->{_cardseq}}){
-            print $caird->getRank . $caird->getSuit . " "; 
-        }
+        #foreach my $caird (@{$self->{_cardseq}}){
+        #    print $caird->getRank . $caird->getSuit . " "; 
+        #}
         my $idxcard = @{$self->{_cardseq}}[$idx];
         my $jdxcard = @{$self->{_cardseq}}[$jdx];
         @{$self->{_cardseq}}[$idx] = $jdxcard;
         @{$self->{_cardseq}}[$jdx] = $idxcard;
-        print "\n"
+        #print "\n"
     }
     #$self->{_cardseq} = @newcardseq;
-    print "end shuffle\n";
+    #print "end shuffle\n";
     return $self;
 }
 1;
