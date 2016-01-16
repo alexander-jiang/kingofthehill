@@ -69,7 +69,6 @@ sub shuffleDeck{ #don't shuffle an empty cardpile or cardstack
     #print "end shuffle\n";
     return $self;
 }
-<<<<<<< HEAD
 
 sub printCards {
     my ($self) = @_;
