@@ -1,7 +1,7 @@
-#! /usr/bin/perl
+use strict;
+use KOTH::Hand;
 
-package Player;
-use Hand;
+package KOTH::Player;
 
 sub new {
     my $class = shift;
